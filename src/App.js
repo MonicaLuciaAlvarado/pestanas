@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import Pestanas from './Componentes/Pestanas';
+import Contenido from './Componentes/Contenido';
+import './Componentes/Pestanas.css';
 
-function App() {
+const App=()=> {
+  const pestas = ["Pestaña 1","Pestaña 2","Pestaña 3"];
+  const cont = ["Tab 1 content is showing here","Tab 2 content is showing here","Tab 3 content is showing here"];
+  const [celd,setCeld] = useState('');
+  const elegir=(celd)=>{
+    setCeld(celd);
+    console.log(celd);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Pestanas array={pestas} func={elegir}/>
+      <Contenido desc={cont} array={pestas} celda={celd}/>
     </div>
   );
 }
